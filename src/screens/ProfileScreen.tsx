@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text, Button } from 'react-native-paper';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import * as Device from 'expo-device';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+export const ProfileScreen = ({ navigation }: any) => {
+  const [deviceName, setDeviceName] = useState('Usuário');
 
-export const ProfileScreen = ({ route, navigation }: Props) => {
-  const { userName } = route.params;
+  useEffect(() => {
+    const getName = async () => {
+      const name = Device.deviceName ?? 'Usuário';
+      setDeviceName(name);
+    };
+    getName();
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text variant="headlineMedium">👤 Perfil</Text>
-      <Text style={{ marginTop: 8 }}>Bem-vindo, {userName}!</Text>
-      <Button mode="contained" style={{ marginTop: 16 }} onPress={() => navigation.goBack()}>
+      <Text style={{ marginTop: 8 }}>Bem-vindo, {deviceName}!</Text>
+      <Button
+        mode="contained"
+        style={{ marginTop: 16 }}
+        onPress={() => navigation.goBack()}
+      >
         Voltar
       </Button>
     </SafeAreaView>

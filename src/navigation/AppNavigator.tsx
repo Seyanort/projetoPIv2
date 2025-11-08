@@ -7,21 +7,22 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { HomeScreen } from '../screens/HomeScreen';
 import { AboutScreen } from '../screens/AboutScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
+import AgendaScreen from '../screens/AgendaScreen';
 
 export type RootDrawerParamList = {
   Tabs: undefined;
   About: undefined;
+  Agenda: undefined;
 };
 
 export type RootStackParamList = {
   Home: undefined;
-  Profile: { userName: string };
+  Profile: { userName?: string };
 };
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
-// Tabs internas com Home e Profile
 const Tabs = () => (
   <Tab.Navigator
     screenOptions={{
@@ -69,9 +70,24 @@ export const AppNavigator = () => (
         options={{ title: 'Início' }}
       />
       <Drawer.Screen
+        name="Agenda"
+        component={AgendaScreen}
+        options={{
+          title: 'Agenda',
+          drawerIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="calendar-month-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Drawer.Screen
         name="About"
         component={AboutScreen}
-        options={{ title: 'Sobre' }}
+        options={{
+          title: 'Sobre',
+          drawerIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="information-outline" color={color} size={size} />
+          ),
+        }}
       />
     </Drawer.Navigator>
   </NavigationContainer>
