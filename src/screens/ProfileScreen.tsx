@@ -3,12 +3,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text, Button } from 'react-native-paper';
 import * as Device from 'expo-device';
 
-export const ProfileScreen = ({ navigation }: any) => {
+export default function ProfileScreen({ navigation }: any) {
   const [deviceName, setDeviceName] = useState('Usuário');
 
   useEffect(() => {
     const getName = async () => {
-      const name = Device.deviceName ?? 'Usuário';
+      const name = (Device as any).deviceName ?? 'Usuário';
       setDeviceName(name);
     };
     getName();
@@ -27,4 +27,4 @@ export const ProfileScreen = ({ navigation }: any) => {
       </Button>
     </SafeAreaView>
   );
-};
+}

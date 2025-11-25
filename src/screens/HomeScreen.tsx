@@ -6,7 +6,7 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
-export const HomeScreen = ({ navigation }: Props) => {
+export default function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text variant="headlineMedium">🏠 Home Screen</Text>
@@ -19,4 +19,4 @@ export const HomeScreen = ({ navigation }: Props) => {
       </Button>
     </SafeAreaView>
   );
-};
+}

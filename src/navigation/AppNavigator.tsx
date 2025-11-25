@@ -4,9 +4,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { HomeScreen } from '../screens/HomeScreen';
-import { AboutScreen } from '../screens/AboutScreen';
-import { ProfileScreen } from '../screens/ProfileScreen';
+import HomeScreen from '../screens/HomeScreen';
+import AboutScreen from '../screens/AboutScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import AgendaScreen from '../screens/AgendaScreen';
 
 export type RootDrawerParamList = {
@@ -21,7 +21,7 @@ export type RootStackParamList = {
 };
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
-const Tab = createBottomTabNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<any>();
 
 const Tabs = () => (
   <Tab.Navigator

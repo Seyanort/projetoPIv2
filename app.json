@@ -27,6 +27,15 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+
+    "extra": {
+      "supabaseUrl": "https://wjovxjncpkwcfrsryyae.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indqb3Z4am5jcGt3Y2Zyc3J5eWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwOTQ2NTEsImV4cCI6MjA3OTY3MDY1MX0.v05-kg_DVGLUEeOS5NyqEnR4cMdiero14YoQBcFa4q4",
+      "eas": {
+        "projectId": "projetoPI"
+      }
+    },
+
     "sdkVersion": "54.0.0",
     "updates": {
       "fallbackToCacheTimeout": 0
